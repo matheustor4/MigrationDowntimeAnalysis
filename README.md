@@ -9,3 +9,23 @@ Please follow the instructions at: https://github.com/krylovsk/mqtt-benchmark
 
 ## For VM Migration downtime analysis
 
+First, adjust the UDP_IP variable in clientDwt.py to the IP address of VM that will be monitored. 
+For unstable connections, adjust sock.settimeout to avoid excessive timeout entries in the server_time.txt file. 
+
+Then, import the serverDwt.py file to your VM. 
+Run the server using python3.  
+
+``
+python3 serverDwt.py
+``
+
+From your external client, run the clientDwt.py.
+
+``
+python3 clientDwt.py
+``
+
+The client software will generate a output file: server_time.txt with the data obtained from the server. 
+Filter the file for the "timeout" word to find the downtime occurence. 
+
+
